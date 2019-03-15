@@ -2,6 +2,7 @@
   Action Types Go Here!
   Be sure to export each action type so you can pull it into your reducer
 */
+import axios from 'axios';
 
 export const ADD_SMURF = 'ADD_SMURF';
 export const GET_SMURF = 'GET_SMURF';
@@ -19,3 +20,10 @@ export const DELETE_SMURF = 'DELETE_SMURF';
    D - deleteSmurf
 */
 
+export const addSmurf = () => {}
+
+export const getSmurf = () => {}
+
+export const updateSmurf = () => {}
+
+export const deleteSmurf = () => {}
