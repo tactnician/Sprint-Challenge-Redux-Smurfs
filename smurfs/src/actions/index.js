@@ -21,11 +21,12 @@ export const ERR = 'ERR';
   D - deleteSmurf
 */
 
-// export const addSmurf = () => dispatch => {
-//   dispatch({type: ADD_SMURF});
-//   axios
-//     .post()
-// }
+export const addSmurf = () => dispatch => {
+  dispatch({type: ADD_SMURF});
+  axios
+    .post('http://localhost:3333/smurfs')
+    // .then(res => dispatch({type: ADD_SMURF, payload}))
+}
 
 export const getSmurf = () => dispatch => {
   dispatch({type: GET_SMURF});

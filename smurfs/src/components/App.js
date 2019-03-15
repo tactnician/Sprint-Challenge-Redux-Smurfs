@@ -11,35 +11,85 @@ import {connect} from 'react-redux';
 
 import {getSmurf} from '../actions';
 
-// class App extends Component {
+class App extends Component {
+  state = {
+    name: '',
+    age: '',
+    height: '',
+  }
 
-//   componentDidMount(){
-//     this.props.getSmurf();
-//   }
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
-//   render() {
-//     return (
-//       <div className="App">
-//         <h1>SMURFS! 2.0 W/ Redux</h1>
-//         <div>Welcome to your Redux version of Smurfs!</div>
-//         <div>Start inside of your `src/index.js` file!</div>
-//         <div>Have fun!</div>
-//       </div>
-//     );
-//   }
-// }
+addSmurf = () => {
+  const { name, age, height } = this.state;
+  this.props.addSmurf({ name, age, height });
+  this.setState({ name: '', age: '', height: '' });
+  };
 
-const App = props => {
+  render() {
+    return (
+      <div className="App">
+        <h1>SMURFS! 2.0 W/ Redux</h1>
+        
+        <h3>Smurf Me!</h3>
+        {this.props.smurfs.map(smurf => {
+          return(
+            <div>
+            <h4>{smurf.name}</h4>
+            <p>{smurf.age}</p>
+            <p>{smurf.height}</p>
+            </div>
+          )
+        })}
 
-  return(
-    <div>
-      <h1>Get Smurfed</h1>
-      <div className='underline' />
-      <h3></h3>
-    </div>
-  )
 
+        <form>
+          <input
+            className="input"
+            value={this.state.name}
+            name="name"
+            type="text"
+            placeholder="Name"
+            onChange={this.handleChange}
+          />
+          <input
+            className="input"
+            value={this.state.age}
+            name="age"
+            type="text"
+            placeholder="Age"
+            onChange={this.handleChange}
+          />
+          <input
+            className="input"
+            value={this.state.email}
+            name="height"
+            type="text"
+            placeholder="Height"
+            onChange={this.handleChange}
+          />
+          <button onClick={() => this.addSmurf()}>
+            Smurf It Baby!
+          </button>
+        </form>
+      </div>
+    );
+  }
 }
+
+// const App = props => {
+
+//   return(
+//     <div>
+//       <h1>Get Smurfed</h1>
+//       <div className='underline' />
+//       <h3></h3>
+//     </div>
+//   )
+
+// }
 
 const mapStateToProps = state => {
   // const {rootReducer} = state;
