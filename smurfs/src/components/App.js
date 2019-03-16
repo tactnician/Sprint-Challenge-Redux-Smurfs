@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import SmurfForm from './SmurfForm';
+import SmurfList from './SmurfList';
+
+
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
@@ -10,7 +14,7 @@ import './App.css';
 
 import {connect} from 'react-redux';
 
-import {getSmurf} from '../actions';
+
 
 class App extends Component {
   
@@ -24,11 +28,7 @@ class App extends Component {
 
   
 
-  addSmurf = () => {
-    const { name, age, height } = this.state;
-    this.props.addSmurf({ name, age, height });
-    this.setState({ name: '', age: '', height: '' });
-  };
+  
 
   render() {
     return (
@@ -36,17 +36,9 @@ class App extends Component {
         <h1>SMURFS! 2.0 W/ Redux</h1>
         {console.log(this.state)}
         <h3>Smurf Me!</h3>
-        {/* {this.state.smurfs.map(smurf => {
-          return(
-            <div>
-            <h4>{smurf.name}</h4>
-            <p>{smurf.age}</p>
-            <p>{smurf.height}</p>
-            </div>
-          )
-        })} */}
-
-
+        
+        <SmurfList />
+        <SmurfForm />
         
       </div>
     );

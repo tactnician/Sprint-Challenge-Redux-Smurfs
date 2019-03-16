@@ -24,7 +24,7 @@ export const ERR = 'ERR';
 export const getSmurf = () => dispatch => {
   dispatch({type: GET_SMURF});
   axios
-    .get('http://localhost:3333/smurfs')
+    .get('http://localhost:3333/smurfs/')
     .then(res => {
       console.log(res.data)
       dispatch({type: GET_SMURF, payload: res.data })
@@ -36,7 +36,7 @@ export const getSmurf = () => dispatch => {
 export const addSmurf = () => dispatch => {
   dispatch({type: ADD_SMURF});
   axios
-    .post('http://localhost:3333/smurfs')
+    .post('http://localhost:3333/smurfs/')
     .then(({data}) => {
       dispatch({type: ADD_SMURF, payload: data})
     })

@@ -17,6 +17,13 @@ class SmurfForm extends Component {
         });
     };
 
+    addSmurf = event => {
+        event.preventDefault();
+        const { name, age, height } = this.state;
+        this.props.addSmurf({ name, age, height });
+        this.setState({ name: '', age: '', height: '' });
+    };
+
     render() {
         return (
         <div>
