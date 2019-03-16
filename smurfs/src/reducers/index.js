@@ -35,28 +35,33 @@ const intialState = {
   Components can then read your store as, `state` and not `state.fooReducer`.
 */
 
+
+
+
 const rootReducer = (state = intialState, action) => {
   console.log('rootReducer', action)
   switch(action.type){
     case GET_SMURF:
       return {
         ...state,
-        smurfs: action.payload,
+        // smurfs: action.payload,
         fetchingSmurfs: true,
       }
-    case ADD_SMURF:
-      return{
-        ...state,
+    // case ADD_SMURF:
+    //   return{
+    //     ...state,
+        
 
-      }
-    case UPDATE_SMURF:
-      return {
-        ...state,
-      }
-    case DELETE_SMURF:
-      return{
-        ...state,
-      }
+
+    //   }
+    // case UPDATE_SMURF:
+    //   return {
+    //     ...state,
+    //   }
+    // case DELETE_SMURF:
+    //   return{
+    //     ...state,
+    //   }
     default: {
       return{
         ...state,

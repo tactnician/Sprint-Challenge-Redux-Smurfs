@@ -21,18 +21,25 @@ export const ERR = 'ERR';
   D - deleteSmurf
 */
 
-export const addSmurf = () => dispatch => {
-  dispatch({type: ADD_SMURF});
-  axios
-    .post('http://localhost:3333/smurfs')
-    // .then(res => dispatch({type: ADD_SMURF, payload}))
-}
-
 export const getSmurf = () => dispatch => {
   dispatch({type: GET_SMURF});
   axios
     .get('http://localhost:3333/smurfs')
-    .then(res => dispatch({type: GET_SMURF, payload: res.data }))
+    .then(res => {
+      console.log(res.data)
+      dispatch({type: GET_SMURF, payload: res.data })
+    }
+    )
+    .catch(err => dispatch({type: ERR, payload: err}))
+}
+
+export const addSmurf = () => dispatch => {
+  dispatch({type: ADD_SMURF});
+  axios
+    .post('http://localhost:3333/smurfs')
+    .then(({data}) => {
+      dispatch({type: ADD_SMURF, payload: data})
+    })
     .catch(err => dispatch({type: ERR, payload: err}))
 }
 
