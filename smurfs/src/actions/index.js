@@ -16,7 +16,7 @@ export const DELETE_SMURF = 'DELETE_SMURF';
 export const UPDATING_SMURF = 'UPDATING_SMURF';
 export const DELETING_SMURF = 'DELETING_SMURF';
 export const SINGLE_SMURF = 'SINGLE_SMURF';
-export const TOGGLE_UPDATE_SMURF = 'TOGGLE_UPDATE_SMURF';
+// export const TOGGLE_UPDATE_SMURF = 'TOGGLE_UPDATE_SMURF';
 
 /*
   For this project you'll need at least 2 action creators for the main portion,
