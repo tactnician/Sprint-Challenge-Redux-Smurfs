@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux';
 
-export default class SmurfForm extends Component {
+class SmurfForm extends Component {
+    state = {
+        name:'',
+        age: '',
+        height: '',
+    }
+    
     render() {
         return (
         <div>
@@ -10,3 +17,4 @@ export default class SmurfForm extends Component {
     }
 }
 
+export default connect(mapStateToProps, {})(FriendForm);

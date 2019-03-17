@@ -1,11 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Smurfs extends Component {
-    render() {
-        return (
+export default function Smurfs(props) {
+    return (
         <div>
-            
+            <h3>{}</h3>
         </div>
-        )
-    }
+    )
 }
