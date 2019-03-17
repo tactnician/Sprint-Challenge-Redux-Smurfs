@@ -9,12 +9,48 @@ class SmurfForm extends Component {
         age: '',
         height: '',
     }
+
+    handleInput = e => {
+        this.setState({ [e.target.name]: e.target.value });
+    };
+
+    handleAddSmurf = _ => {
+        const { name, age, height } = this.state;
+        this.props.addSmurf({ name, age, height });
+        this.setState({ name: '', age: '', height: '' });
+    };
     
     render() {
-        return (
-        <div>
-            
-        </div>
+        return(
+            <form >
+                <input
+                className="input"
+                value={this.state.name}
+                name="name"
+                type="text"
+                placeholder="Name"
+                onChange={this.handleInput}
+                />
+                <input
+                className="input"
+                value={this.state.age}
+                name="age"
+                type="text"
+                placeholder="Age"
+                onChange={this.handleInput}
+                />
+                <input
+                className="input"
+                value={this.state.height}
+                name="height"
+                type="text"
+                placeholder="Height"
+                onChange={this.handleInput}
+                />
+                <button onClick={() => this.handleAddSmurf()} type="button">
+                Add New Smurf
+                </button>
+            </form>
         )
     }
 }
