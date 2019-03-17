@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import {deleteSmurf, updateSmurf, toggleShowUpdate} from '../actions';
 
+
 class Smurfs extends Component {
     
     handleShowSmurf = smurf => {
@@ -16,9 +17,14 @@ class Smurfs extends Component {
             <ul className="smurf-List">
                 {this.props.smurfs.map(smurf => {
                     return (
-                        <li onClick={() => this.handleShowSmurf(smurf)} key={smurf.id}>
+                        <div>
+                            <div onClick={() => this.handleShowSmurf(smurf)} key={smurf.id}>
                             {smurf.name}
-                        </li>
+                            </div>
+                            <div>{smurf.age}</div>
+                            <div>{smurf.height}</div>
+                        </div>
+                        
                         );
                     })}
             </ul>
@@ -28,6 +34,13 @@ class Smurfs extends Component {
 }
 
 
+const mapStateToProps = state => {
+    return {
+        deletingSmurf: state.smurfsReducer.deletingSmurf,
+        error: state.smurfsReducer.error,
+        showUpdate: state.smurfReducer.showUpdate,
+        smurfSelected: state.smurfReducer.smurfSelected
+    };
+};
 
-
-export default connect(()=>{}, {deleteSmurf, updateSmurf,toggleShowUpdate})(Smurfs);
+export default connect(mapStateToProps, {deleteSmurf, updateSmurf,toggleShowUpdate})(Smurfs);

@@ -8,11 +8,11 @@ import logger from 'redux-logger';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import rootReducer from './reducers';
+import combineReducers from './reducers';
 
 
 const store = createStore(
-  rootReducer,  applyMiddleware(thunk, logger)
+  combineReducers,  applyMiddleware(thunk, logger)
 );
 
 ReactDOM.render(

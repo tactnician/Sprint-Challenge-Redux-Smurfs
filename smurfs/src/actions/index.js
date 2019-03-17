@@ -29,10 +29,10 @@ export const TOGGLE_UPDATE_SMURF = 'TOGGLE_UPDATE_SMURF';
    D - deleteSmurf
 */
 
-const URL = 'http://localhost:3000/api/smurfs';
+const URL = 'http://localhost:3333/smurfs';
 
 export const getSmurfs = () => {
-  const smurfs = axios.get(`${URL}/get`);
+  const smurfs = axios.get(`${URL}`);
   return dispatch => {
     dispatch({ type: GETTING_SMURFS });
     smurfs
