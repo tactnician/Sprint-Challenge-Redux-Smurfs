@@ -12,9 +12,12 @@ import {getSmurfs} from '../actions';
 
 class App extends Component {
 
+  componentDidMount(){
+    this.props.getSmurfs();
+  }
 
-  render() {
-    return (
+  render(){
+    return(
       <div className="App">
         <header>SMURFS! 2.0 W/ Redux</header>
         <h3>Smurf It Up</h3>
@@ -27,9 +30,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  const {rootReducer} = state;
+  const {smurfsReducer} = state;
   console.log(state)
-  return{}
+  return{
+    smurfs: smurfsReducer.smurfs,
+    error: smurfsReducer.error,
+    fetchingSmurfs: smurfsReducer.fetchingSmurfs
+  };
 }
 
 export default connect(mapStateToProps, {getSmurfs})(App);
